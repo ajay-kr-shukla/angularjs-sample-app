@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" ng-app ng-controller="MainController">
+<head>
+    <meta charset="utf-8">
+    <title>Learning AngularJS</title>
+<link type="text/css" href="default.css" rel="stylesheet">
+
+</head>
+<body>
+<script type="text/x-javascript" src="controller.js"></script>
+<div id="mainwrap">
+    <h1>The AngularJS Sample App</h1>
+    <div class="block">
+    	<h4>View People</h4>
+     <div class="search-box">Search! <input type="text" ng-model="search" /></div>
+    <ul>
+        <li ng-repeat="person in people | filter:search">
+            {{ person.name | uppercase}} from {{ person.city | lowercase}}, {{ person.state | lowercase}}
+        </li>
+    </ul>
+</div>
+<div class="block addpeople">
+<h4>Add People</h4>
+<div class="row"><label>Enter the person's name:</label> <input type="text" ng-model="person_name" /></div>
+<div class="row"><label>Enter the person's city:</label> <input type="text" ng-model="person_city" /></div>
+<div class="row"><label>Enter the person's state:</label> <input type="text" ng-model="person_state" /></div>
+<button ng-click="addPerson()">Add the Person!</button>
+</div>
+    
+  <div class="block">  
+<h4>Filters</h4>
+      <pane title="Localization">
+        Date: {{ '2014-08-01' | date:'fullDate' }} <br>
+	Date: {{ 946757880 | date }}<br>
+        Currency: {{ 123456 | currency }} <br>
+        Number: {{ 98765.4321 | number }} <br>
+      </pane>
+</div>
+
+
+  <div class="block addpeople">  
+<h4>Data Binding</h4>
+ 	<div class="row"><label>Enter text in textbox:</label> <input type="text" ng-model="name">
+    <p ng-bind="name" class="bind-data"></p></div>
+ 	
+
+
+
+	<div class="row"><label>Enter text in textbox:</label>    <input type="text" ng-model="sometext" /></div>
+     <h1 class="bind-data"> {{ sometext }}</h1>
+</div>
+
+ <div class="block">  
+<h4>Angular Tabs</h4>
+
+<div ng-app ng-controller="MainController" class="tabs">
+
+    <div class="cb" ng-click="tab = 1">tab 1</div>
+        <div class="cb" ng-click="tab = 2">tab 2</div>
+
+    <div ng-show="tab == 1" class="content">
+        <p>Tab 1 Content</p>
+     </div>
+
+    <div ng-show="tab == 2" class="content">
+        <p>Tab 2 Content</p>
+    </div>
+</div>
+</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    
+</body>
+</html>
+<script>
+function MainController($scope){
+	  $scope.people = [
+		{
+		  name: 'Pramod Kumar',
+		  city: 'New York City',
+		  state: 'New York'
+		},
+		{
+		  name: 'Binod Kumar',
+		  city: 'Oklahoma City',
+		  state: 'Oklahoma'
+		},
+		{
+		  name: 'Subhashish',
+		  city: 'Topeka',
+		  state: 'Kansas'
+		}
+	  ];
+	  $scope.addPerson = function () {
+		$scope.people.push({
+			name: $scope.person_name,
+			city: $scope.person_city,
+			state: $scope.person_state
+		});
+		$scope.person_name = '';
+		$scope.person_city = '';
+		$scope.person_state = '';
+	  }
+}
+
+</script>
