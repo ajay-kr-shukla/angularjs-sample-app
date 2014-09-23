@@ -141,15 +141,44 @@ Customised Filter .
 
 
  <div class="block">  
-<h4>Angular Ajax Service</h4>
-<button ng-click="ajaxCall()">
-<div  class="tabs">
-
-	<div class="row">Click for Ajax Request</button>
-	{{ajaxData}}
+	<h4>Angular Ajax Service</h4>
+	
+	<div  class="tabs">
+		<button ng-click="ajaxCall()" value="">Click for Ajax Request</button>
+		<div class="row">
+			{{ajaxData}}
+		</div>
 	</div>
 </div>
+
+
+
+
+
+ <div class="block" >  
+	<h4>Angular Routing</h4>
+	<div  class="tabs">
+
+		<div class="row">
+			<ul class="nav">
+                <li><a href="#Routing1" > Routing URL1 </a>  </li>
+                <li><a href="#Routing2"> Routing URL2 </a> </li>
+            </ul>
+
+		</div>
+
+		<div class="row">
+			<div ng-view></div>
+		</div>
+		
+	</div>
 </div>
+
+
+
+
+
+
 
 
 

@@ -37,7 +37,7 @@ myAppModule.controller('MainController', ['$scope', '$http', function($scope, $h
 
 		// Ajax Call
 	   $scope.ajaxCall = function () {
-			var responsePromise = $http.get("/angularjs/angularjs-sample-app/ajax-test-data.html");
+			var responsePromise = $http.get("ajax-test-data.html");
 			responsePromise.success(function(data, status, headers, config) {
 				$scope.ajaxData = data;
 			});
@@ -56,3 +56,34 @@ myAppModule.filter('greet', function() {
     return 'Hello, ' + name + '!';
   };
 });
+
+
+// Routing Controller from Route URL 1
+myAppModule.controller('Route1Controller', function($scope) {
+    $scope.routeMsg1 = 'You Clicked on Routing URL1 ';
+});
+ 
+ 
+// Routing Controller from Route URL 2
+myAppModule.controller('Route2Controller', function($scope) {
+    $scope.routeMsg2 = 'You Clicked on Routing URL2 ';
+});
+
+
+
+// Routing for HREF
+myAppModule.config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+      when('/Routing1', { 
+        templateUrl: 'route1.html',
+        controller: 'Route1Controller'
+    }).
+      when('/Routing2', {
+        templateUrl: 'route2.html',
+        controller: 'Route2Controller'
+      }).
+      otherwise({
+//        redirectTo: '/routefree.html'
+      });
+}]);
