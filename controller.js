@@ -1,7 +1,7 @@
 var myAppModule = angular.module('sampleApp', []);
 
-// Controller Declearation
-myAppModule.controller('MainController', ['$scope', '$http', function($scope, $http) {
+// Controller Declaration
+myAppModule.controller('MainController', ['$scope', '$http', 'myFactory', function($scope, $http, myFactory) {
 
 	$scope.tab	=	1;
 	  $scope.people = [
@@ -46,6 +46,8 @@ myAppModule.controller('MainController', ['$scope', '$http', function($scope, $h
 			});
 	  }
 
+	$scope.di =myFactory;
+
 
 }]);
 
@@ -87,3 +89,12 @@ myAppModule.config(['$routeProvider',
 //        redirectTo: '/routefree.html'
       });
 }]);
+
+myAppModule.value("numberValue", 999);
+
+myAppModule.factory("myFactory", function(numberValue) {
+    return "Dependency Injection call ------->  value: " + numberValue;
+});
+
+
+
