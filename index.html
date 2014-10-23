@@ -41,6 +41,7 @@ AngularJS' two-way data binding is its most notable feature and reduces the amou
         <li > AngularJS loops, show, hide, clicks, data binding, custyomised filter</li>
         <li > AngularJS Sample Application </li>
 		<li > Dependency Injection</li>
+		<li>Creating Dynamic Models in AngularJS</li>
  </ul>
 
 
@@ -200,7 +201,37 @@ Customised Filter .
 </div>
 
  
+ <div class="block" >  
+	<h4>Creating Dynamic Models in AngularJS</h4>
+	<div  class="tabs">
 
+		<div class="row">
+
+
+		</div>
+
+		<div class="row">
+				<ul ng-repeat="question in Questions">
+						<li>
+							<div>{{question.Text}}</div>
+							<select ng-model="Answers['{{question.Name}}']" ng-options="option for option in question.Options">
+							</select>
+						</li>
+				</ul>
+				<button ng-click="ShowAnswers()">Submit</button>
+		</div>
+		<br>
+			<div class="row">
+				<div class="form-group" data-ng-repeat="textbox in textboxes">
+						
+					<input type="text" ng-model="textbox.name" name="" placeholder="Enter Your Value Here">
+					<button ng-show="showAddTextBox(textbox)" ng-click="addNewTextBox()">Add Another extBox</button>
+				</div>
+				
+		</div>
+		
+	</div>
+</div>
 
 
 

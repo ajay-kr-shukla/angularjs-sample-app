@@ -1,6 +1,3 @@
-AngularJS Sample App Tutorials
-====================
-
 <div dir="ltr" style="text-align: left;" trbidi="on">
 <b><br /></b>
 <br />
@@ -28,6 +25,8 @@ AngularJS' two-way data binding is its most notable feature and reduces the amou
 <span class="Apple-tab-span" style="white-space: pre;">  </span>AngularJS HttpRequest<br />
 <span class="Apple-tab-span" style="white-space: pre;">  </span>AngularJS Forms/Models<br />
 <span class="Apple-tab-span" style="white-space: pre;">  </span>AngularJS loops, show, hide, clicks, data binding, custyomised filter<br />
+&nbsp;Dependency Injection<br />
+&nbsp;Creating Dynamic Models in AngularJS<br />
 <br />
 <div>
 <br /></div>
@@ -185,17 +184,57 @@ myAppModule.config(['$routeProvider',<br />
 }]);<br />
 We need to make two HTML files (route1.html, route2.html) to render files html on the view<br />
 <b><br /></b>
+<b><br />Dependency Injection</b><br />
 <b><br /></b>
+Dependency injection in AngularJS is responsible for creating components, dealing with how they get hold of their dependencies,&nbsp;<span class="Apple-tab-span" style="white-space: pre;"> </span>and making them available to other components when requested.<br />
+If you want to gain access to core AngularJS services, then you require adding a particular service as a parameter.<br />
+AngularJS will automatically notice that you want to use that service, and will make an instance available for you.<br />
+<b><br /></b>
+<b><br /></b>
+<b>Creating Dynamic Models in AngularJS</b><br />
+Adding a TextBox or Radio Button dynamically to the form.<br />
+Here we have to do little more to add the element dynamically. Here are the steps.<br />
+<br />
+Put this in Html File<br />
+<span class="Apple-tab-span" style="white-space: pre;">   </span>&lt;div class="row"&gt;<br />
+<span class="Apple-tab-span" style="white-space: pre;">    </span>&lt;div class="form-group" data-ng-repeat="textbox in textboxes"&gt;<br />
+<span class="Apple-tab-span" style="white-space: pre;">      </span><br />
+<span class="Apple-tab-span" style="white-space: pre;">     </span>&lt;input type="text" ng-model="textbox.name" name="" placeholder="Enter Your Value Here"&gt;<br />
+<span class="Apple-tab-span" style="white-space: pre;">     </span>&lt;button ng-show="showAddTextBox(textbox)" ng-click="addNewTextBox()"&gt;Add Another extBox&lt;/button&gt;<br />
+<span class="Apple-tab-span" style="white-space: pre;">    </span>&lt;/div&gt;<br />
+<span class="Apple-tab-span" style="white-space: pre;">    </span><br />
+<span class="Apple-tab-span" style="white-space: pre;">  </span>&lt;/div&gt;<br />
+<br />
+In Contrlller JS file<br />
+<br />
+<br />
+<span class="Apple-tab-span" style="white-space: pre;">  </span>$scope.textboxes = [{id: 'Text1'}, {id: 'Text2'}, {id: 'Text3'}];<br />
+<br />
+<span class="Apple-tab-span" style="white-space: pre;">  </span>$scope.addNewTextBox = function() {<br />
+<span class="Apple-tab-span" style="white-space: pre;">   </span>var newItemNo = $scope.textboxes.length+1;<br />
+<span class="Apple-tab-span" style="white-space: pre;">   </span>$scope.textboxes.push({'id':'Text' +newItemNo});<br />
+<span class="Apple-tab-span" style="white-space: pre;">  </span>};<br />
+<br />
+<span class="Apple-tab-span" style="white-space: pre;">  </span>$scope.showAddTextBox = function(textbox) {<br />
+<span class="Apple-tab-span" style="white-space: pre;">  </span> &nbsp; return textbox.id === $scope.textboxes[$scope.textboxes.length-1].id;<br />
+<span class="Apple-tab-span" style="white-space: pre;">  </span>};<br />
+<span class="Apple-tab-span" style="white-space: pre;"> </span><br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <b><br /></b>
 (still more to come)<br />
 <br />
 <br />
 <br />
 <b>AngularJS Sample Application</b><br />
-Download Sample Application with reference to the doc. This will relate the tutorial with the code.<br />
+Download Sample Application with reference to the doc.<br />
+This will relate the tutorial with the code.<br />
 <a href="https://github.com/ajay-kr-shukla/angularjs-sample-app">https://github.com/ajay-kr-shukla/angularjs-sample-app</a><br />
 <div>
-<br />
-<a href="https://www.linkedin.com/pub/ajay-shukla/12/861/95">Contact me @&nbsp;&nbsp;</a>&nbsp;mrajayshukla@gmail.com<br />
+My LinkedIn Page&nbsp;<a href="https://www.linkedin.com/pub/ajay-shukla/12/861/95">https://www.linkedin.com/pub/ajay-shukla/12/861/95</a><br />
+Contact me @&nbsp;mrajayshukla@gmail.com<br />
 <br /></div>
 </div>

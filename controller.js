@@ -46,6 +46,36 @@ myAppModule.controller('MainController', ['$scope', '$http', 'myFactory', functi
 			});
 	  }
 
+	  
+	  
+	      $scope.Answers = {};
+
+		$scope.Questions = [
+			{
+				"Text": "Favorite color?",
+				"Name": "ColorQuestion",
+				"Options": ["Red", "Blue", "Green"]}
+			];
+
+		$scope.ShowAnswers = function()
+			{
+				alert($scope.Answers["{{question.Name}}"]);
+			};
+		  
+		  
+		$scope.textboxes = [{id: 'Text1'}, {id: 'Text2'}, {id: 'Text3'}];
+
+		$scope.addNewTextBox = function() {
+			var newItemNo = $scope.textboxes.length+1;
+			$scope.textboxes.push({'id':'Text' +newItemNo});
+		};
+
+		$scope.showAddTextBox = function(textbox) {
+		   return textbox.id === $scope.textboxes[$scope.textboxes.length-1].id;
+		};
+	  
+	  
+	  
 	$scope.di =myFactory;
 
 
