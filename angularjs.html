@@ -225,14 +225,41 @@ Customised Filter .
 				<div class="form-group" data-ng-repeat="textbox in textboxes">
 						
 					<input type="text" ng-model="textbox.name" name="" placeholder="Enter Your Value Here">
-					<button ng-show="showAddTextBox(textbox)" ng-click="addNewTextBox()">Add Another extBox</button>
 				</div>
-				
-		</div>
+			</div>
 		
+			<div class="row">
+					<button ng-click="addNewTextBox()">Add Another TextBox</button>
+			</div>
 	</div>
 </div>
 
+
+
+ 
+ <div class="block" >  
+	<h4>Checkbox check/Uncheck in AngularJS</h4>
+	<div  class="tabs">
+
+		
+
+
+
+		<div class="row">
+
+			  Value1: <input type="checkbox" ng-model="value1"> <br/>
+			  Value2: <input type="checkbox" ng-model="value2"
+							 ng-true-value="'YES'" ng-false-value="'NO'"> <br/>
+							 
+		</div>
+		<div class="row">
+			  <tt>value1 = {{value1}}</tt><br/>
+			  <tt>value2 = {{value2}}</tt><br/>
+
+			</div>
+		
+	</div>
+</div>
 
 
 

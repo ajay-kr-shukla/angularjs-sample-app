@@ -63,7 +63,7 @@ myAppModule.controller('MainController', ['$scope', '$http', 'myFactory', functi
 			};
 		  
 		  
-		$scope.textboxes = [{id: 'Text1'}, {id: 'Text2'}, {id: 'Text3'}];
+		$scope.textboxes = [];
 
 		$scope.addNewTextBox = function() {
 			var newItemNo = $scope.textboxes.length+1;
@@ -77,6 +77,9 @@ myAppModule.controller('MainController', ['$scope', '$http', 'myFactory', functi
 	  
 	  
 	$scope.di =myFactory;
+	
+	 $scope.value1 = true;
+      $scope.value2 = 'YES'
 
 
 }]);
